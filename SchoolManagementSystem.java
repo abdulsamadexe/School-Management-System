@@ -1,5 +1,5 @@
 class SchoolManagementSystem {
     public static void main(String[] args) {
-        System.out.println("School Managemernt System");
+        System.out.println("Final Project: School Management System");
     }
 }
