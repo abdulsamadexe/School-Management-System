@@ -1,4 +1,4 @@
-import java.util.List;
+import java.util.*;
 public class AdministrativeStaff extends Person implements Reportable {
     private String staffID;
     private String role;
@@ -10,7 +10,10 @@ public class AdministrativeStaff extends Person implements Reportable {
         this.role = role;
         this.department = department;
     }
-
+    public String generateReport(){
+        System.out.println("Generating report");
+        return "Report generated";
+    }
     public String generateReport(List<Person> people) {
         StringBuilder report = new StringBuilder();
         for (Person person : people) {
@@ -23,9 +26,10 @@ public class AdministrativeStaff extends Person implements Reportable {
     public String displayDetails() {
         return "Staff: " + staffID + ", Name: " + name + ", Role: " + role + ", Department: " + department;
     }
-
     @Override
-    public String generateReport() {
-        return "Administrative Staff Report: " + displayDetails();
+    public void exportToFile(){
+        System.out.println("Exporting to file");
+
     }
+
 }

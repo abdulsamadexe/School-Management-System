@@ -1,5 +1,5 @@
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
+import java.io.*;
 public class Teacher extends Person implements Reportable {
     private String teacherID;
     private String specialization;
@@ -24,9 +24,6 @@ public class Teacher extends Person implements Reportable {
         this.specialization = specialization;
     }
     
-
-
-
     public void assignCourse(Course course) {
         coursesTaught.add(course);
         System.out.println("Teacher " + teacherID + " assigned to teach " + course.getTitle());
@@ -37,6 +34,10 @@ public class Teacher extends Person implements Reportable {
         for (Course course : coursesTaught) {
             System.out.println(course.getTitle() + " (" + course.getCourseID() + ")");
         }
+    }
+    @Override
+    public void exportToFile() {
+        
     }
 
     @Override

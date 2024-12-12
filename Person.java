@@ -10,29 +10,29 @@ public abstract class Person {
         this.email = email;
         this.dateOfBirth = dateOfBirth;
     }
-
-    void setName(String name) {
+    
+    public void setName(String name) {
         this.name = name;
     }
 
-    String getName() {
+    public String getName() {
         return name;
     }
 
-    void setEmail(String email) {
+    public void setEmail(String email) {
         this.email = email;
     }
 
 
-    String getEmail() {
+    public String getEmail() {
         return email;
     }
 
-    void setDateOfBirth(String dateOfBirth) {
+    public void setDateOfBirth(String dateOfBirth) {
         this.dateOfBirth = dateOfBirth;
     }
 
-    String getDateOfBirth() {
+    public String getDateOfBirth() {
         return dateOfBirth;
     }
 
