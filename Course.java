@@ -8,10 +8,22 @@ public class Course {
     private List<Student> enrolledStudents;
     private List<Integer> grades;
 
+    public Course(String courseID, String title,Teacher teacher, int credits) {
+        this.courseID = courseID;
+        this.title = title;
+        this.credits = credits;
+        this.assignedTeacher = teacher;
+        this.enrolledStudents = new ArrayList<>(100);
+        grades = new ArrayList<>(enrolledStudents.size());
+        for (int i = 0; i < enrolledStudents.size(); i++) {
+            grades.add(null);
+        }
+    }
     public Course(String courseID, String title, int credits) {
         this.courseID = courseID;
         this.title = title;
         this.credits = credits;
+        this.assignedTeacher = null;
         this.enrolledStudents = new ArrayList<>(100);
         grades = new ArrayList<>(enrolledStudents.size());
         for (int i = 0; i < enrolledStudents.size(); i++) {
