@@ -56,11 +56,17 @@ public class University {
         return result;
     }
 
+
     public void loadData(String filename) {
         
     }
 
 
     public void saveData(String filename) {
+       
+    }
+
+    public static void main(String[] args) {
+        
     }
 }

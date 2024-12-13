@@ -1,5 +1,5 @@
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
+import java.io.*;
 public class Course {
     private String courseID;
     private String title;
@@ -19,7 +19,6 @@ public class Course {
             grades.add(null);
         }
     }
-    
     public Course(String courseID, String title, int credits) {
         this.courseID = courseID;
         this.title = title;
@@ -87,20 +86,36 @@ public class Course {
         return 0.0;
     }
 
-    public static void main(String[] args) {
-        Course course = new Course("C001", "Mathematics", 4);
-        Student student1 = new Student("S001", "Alice", "abc", "01-01-2000", "123 Main St");
-        Student student2 = new Student("S002", "Bob", "def", "02-02-2001", "456 Elm St");
-        Student student3 = new Student("S003", "Charlie", "ghi", "03-03-2002", "789 Oak St");
+    public void writeData() {
+        System.out.println("Writing data to file");
+        try{
+            FileWriter writer = new FileWriter("Course_data.txt");
+            writer.write("Course ID: " + courseID + "\n");
+            writer.write("Title: " + title + "\n");
+            writer.write("Credits: " + credits + "\n");
+            writer.write("Teacher: " + assignedTeacher.getName() + "\n");
+            writer.write("Students: \n");
+            for (int i = 0; i < enrolledStudents.size(); i++) {
+                writer.write(enrolledStudents.get(i).getStudentID() + " - " + grades.get(i) + "\n");
+            }
+            writer.close();
+        } catch (IOException e) {
+            System.out.println("An error occurred.");
+            e.printStackTrace();
+        }
+    }
 
+    public static void main(String[] args) {
+        Course course = new Course("CSC101", "Intro to Programming", 3);
+        Teacher teacher = new Teacher("John Doe", "jdoe", "asd", "01/01/2000", "Computer Science");
+        course.setAssignedTeacher(teacher);
+        Student student1 = new Student("Alice", "alice", "asd", "01/01/2000", "123");
+        Student student2 = new Student("Bob", "bob", "asd", "01/01/2000", "456");
         course.addStudent(student1);
         course.addStudent(student2);
-        course.addStudent(student3);
-
-        course.removeStudent(student1);
-        course.assignGrade(student2, 90);
-        course.assignGrade(student3, 85);
-        System.out.println("Average grade for " + course.getTitle() + ": " + course.calculateAverageGrade());
-
+        course.assignGrade(student1, 90);
+        course.assignGrade(student2, 85);
+        course.writeData();
+        
     }
 }
