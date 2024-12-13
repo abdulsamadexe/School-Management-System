@@ -19,6 +19,7 @@ public class Course {
             grades.add(null);
         }
     }
+    
     public Course(String courseID, String title, int credits) {
         this.courseID = courseID;
         this.title = title;

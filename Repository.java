@@ -1,7 +1,7 @@
 import java.util.*;
 
 public class Repository<T> {
-    private List<T> items;
+    private ArrayList<T> items;
 
     public Repository() {
         items = new ArrayList<>();
