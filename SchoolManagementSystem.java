@@ -23,15 +23,18 @@ public class SchoolManagementSystem {
         course3.setAssignedTeacher(teacher1);
 
         student1.enrollInCourse(course1);
+        course1.addStudent(student1);
         student1.enrollInCourse(course2);
+        course2.addStudent(student1);
         student2.enrollInCourse(course1);
+        course1.addStudent(student2);
 
         teacher1.assignCourse(course1);
         teacher1.assignCourse(course2);
         teacher2.assignCourse(course3);
 
-        
-        
+        university.saveData("University_data.txt");
+
 
     }
 }

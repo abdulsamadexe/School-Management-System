@@ -63,10 +63,44 @@ public class University {
 
 
     public void saveData(String filename) {
-       
-    }
+    try {
+        PrintWriter writer = new PrintWriter("Course_data.txt");
+        for(Course course: courses.getAll()){
+            writer.print(course.getCourseID()+" ");
+            writer.print(course.getTitle()+" ");
+            writer.println(course.getCredits()+"");
+            Teacher assignedTeacher = course.getAssignedTeacher();
+            if (assignedTeacher != null) {
+                writer.print(assignedTeacher.getTeacherID()+" ");
+                writer.print(assignedTeacher.getName()+" ");
+                writer.print(assignedTeacher.getEmail()+" ");
+                writer.print(assignedTeacher.getDateOfBirth()+" ");
+                writer.println(assignedTeacher.getSpecialization()+" ");
+            } else {
+                writer.println("null");
+            }
+            List<Student> enrolledStudents = course.getEnrolledStudents();
+            for (Student student : enrolledStudents) {
+                writer.print(student.getStudentID()+" ");
+                writer.print(student.getName()+" ");
+                writer.print(student.getEmail()+" ");
+                writer.print(student.getDateOfBirth()+" ");
+                writer.println(student.getAddress()+" ");
 
-    public static void main(String[] args) {
-        
+            }
+            List<Integer> grades = course.getGrades();
+            for (Integer grade : grades) {
+                if (grade != null) {
+                    writer.print(grade+" ");
+                } else {
+                    writer.print("null"+" ");
+                }
+            }
+            writer.println("\n");
+            }
+            writer.close();
+        } catch (IOException e) {
+            System.out.println("Error writing to file");
+        }
+        }
     }
-}
