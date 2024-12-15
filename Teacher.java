@@ -16,6 +16,10 @@ public class Teacher extends Person implements Reportable {
         return teacherID;
     }
 
+    public List<Course> getCoursesTaught() {
+        return coursesTaught;
+    }
+
     public String getSpecialization() {
         return specialization;
     }

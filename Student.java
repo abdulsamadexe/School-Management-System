@@ -19,6 +19,10 @@ public class Student extends Person {
         return address;
     }
 
+    public List<Course> getEnrolledCourses() {
+        return enrolledCourses;
+    }
+
     public void setAddress(String address) {
         this.address = address;
     }

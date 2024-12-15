@@ -102,5 +102,61 @@ public class University {
         } catch (IOException e) {
             System.out.println("Error writing to file");
         }
+
+
+        try{
+            PrintWriter writer = new PrintWriter("Teacher_data.txt");
+            for(Teacher teacher: teachers.getAll()){
+                writer.print(teacher.getTeacherID()+" ");
+                writer.print(teacher.getName()+" ");
+                writer.print(teacher.getEmail()+" ");
+                writer.print(teacher.getDateOfBirth()+" ");
+                writer.println(teacher.getSpecialization()+" ");
+
+                List<Course> coursesTaught = teacher.getCoursesTaught();
+                for (Course course : coursesTaught) {
+                    writer.print(course.getCourseID()+" ");
+                    writer.print(course.getTitle()+" ");
+                    writer.println(course.getCredits()+" ");
+                }
+
+                writer.println("\n");
+            }
+            writer.close();
+
+        } catch (IOException e) {
+            System.out.println("Error writing to file");
+        }
+
+        try {
+            PrintWriter writer = new PrintWriter("Student_data.txt");
+            for(Student student: students.getAll()){
+                writer.print(student.getStudentID()+" ");
+                writer.print(student.getName()+" ");
+                writer.print(student.getEmail()+" ");
+                writer.print(student.getDateOfBirth()+" ");
+                writer.println(student.getAddress()+" ");
+                List<Course> enrolledCourses = student.getEnrolledCourses();
+                for (Course course : enrolledCourses) {
+                    writer.print(course.getCourseID()+" ");
+                    writer.print(course.getTitle()+" ");
+                    writer.println(course.getCredits()+" ");
+                }
+                writer.println("\n");
+            }
+            writer.close();
+        } catch (IOException e) {
+            System.out.println("Error writing to file");
+        }
+
+        try{
+            PrintWriter writer = new PrintWriter("University_data.txt");
+            writer.println(totalStudents);
+            writer.println(totalTeachers);
+            writer.println(totalCourses);
+            writer.close();
+        } catch (IOException e) {
+            System.out.println("Error writing to file");
         }
     }
+}
