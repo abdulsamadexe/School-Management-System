@@ -1,5 +1,5 @@
 import java.util.*;
-import java.io.*;
+// import java.io.*;
 public class Teacher extends Person implements Reportable {
     private String teacherID;
     private String specialization;

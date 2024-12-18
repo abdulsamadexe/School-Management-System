@@ -113,7 +113,7 @@ public class University {
     public List<Student> searchStudentByName(String name) {
         List<Student> result = new ArrayList<>();
         for (Student student : students.getAll()) {
-            if (student.getName().equalsIgnoreCase(name)) {
+            if (student.getName().toLowerCase().contains(name.toLowerCase())) {
                 result.add(student);
             }
         }
