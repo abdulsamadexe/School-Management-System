@@ -53,4 +53,17 @@ public class Teacher extends Person implements Reportable {
     public String generateReport() {
         return "Teacher Report: " + displayDetails();
     }
+    public boolean issameteacher(Teacher obj) {
+        if (obj == null) {
+            return false;
+        }
+        if (this == obj) {
+            return true;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        Teacher other = (Teacher) obj;
+        return teacherID.equals(other.getTeacherID()) && name.equals(other.getName()) && email.equals(other.getEmail()) && dateOfBirth.equals(other.getDateOfBirth()) && specialization.equals(other.getSpecialization());
+    }
 }

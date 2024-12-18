@@ -19,10 +19,15 @@ public class University {
     }
 
     public void addStudent(Student student) {
-        if (!students.getAll().contains(student)) {
-            students.add(student);
-            totalStudents++;
+        List<Student> st=students.getAll();
+        for(Student stud:st){
+            if(stud.compare(student)){
+                return;
+            }
         }
+        students.add(student);
+        totalStudents++;
+        
     }
 
     public void addAdminstaff(AdministrativeStaff s) {
@@ -33,17 +38,27 @@ public class University {
     }
 
     public void addTeacher(Teacher teacher) {
-        if (!teachers.getAll().contains(teacher)) {
+            List<Teacher> t=teachers.getAll();
+            for(Teacher teach:t){
+                if(teach.issameteacher(teacher)){
+                    return;
+                }
+            }
             teachers.add(teacher);
             totalTeachers++;
         }
-    }
+    
 
     public void addCourse(Course course) {
-        if (!courses.getAll().contains(course)) {
-            courses.add(course);
-            totalCourses++;
+        List<Course> crs=courses.getAll();
+        for(Course cr:crs){
+            if(cr.issame(course)){
+                return;
+            }
         }
+        courses.add(course);
+        totalCourses++;
+        
     }
 
     public void displaySystemStats() {
@@ -207,7 +222,7 @@ public class University {
             System.out.println("Error parsing number from file: " + e.getMessage());
         }
 
-        try (Scanner scanner = new Scanner(new File("AdministrativeStaff.txt"))) {
+        try (Scanner scanner = new Scanner(new File("Administrative_staff.txt"))) {
             while (scanner.hasNextLine()) {
                 String line = scanner.nextLine().trim();
                 if (line.isEmpty()) {
@@ -283,8 +298,8 @@ public class University {
                     writer.print(course.getTitle() + " ");
                     writer.println(course.getCredits() + " ");
                 }
+                writer.println();
 
-                writer.println("\n");
             }
             writer.close();
         } catch (IOException e) {
@@ -294,18 +309,18 @@ public class University {
         try {
             PrintWriter writer = new PrintWriter(new FileWriter("Student_data.txt", false));
             for (Student student : students.getAll()) {
-                writer.print(student.getStudentID() + " ");
-                writer.print(student.getName() + " ");
-                writer.print(student.getEmail() + " ");
-                writer.print(student.getDateOfBirth() + " ");
-                writer.println(student.getAddress() + " ");
-                List<Course> enrolledCourses = student.getEnrolledCourses();
-                for (Course course : enrolledCourses) {
-                    writer.print(course.getCourseID() + " ");
-                    writer.print(course.getTitle() + " ");
-                    writer.println(course.getCredits() + " ");
-                }
-                writer.println("\n");
+            writer.print(student.getStudentID() + " ");
+            writer.print(student.getName() + " ");
+            writer.print(student.getEmail() + " ");
+            writer.print(student.getDateOfBirth() + " ");
+            writer.println(student.getAddress() + " ");
+            List<Course> enrolledCourses = student.getEnrolledCourses();
+            for (Course course : enrolledCourses) {
+                writer.print(course.getCourseID() + " ");
+                writer.print(course.getTitle() + " ");
+                writer.println(course.getCredits() + " ");
+            }
+            writer.println();
             }
             writer.close();
         } catch (IOException e) {

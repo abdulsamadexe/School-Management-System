@@ -43,5 +43,13 @@ public class Student extends Person {
     public String displayDetails() {
         return "Student: " + studentID + ", Name: " + name + ", Enrolled in: " + enrolledCourses;
     }
+
+    
+    public boolean compare(Student obj) {
+        Student student = (Student) obj;
+        return studentID.equals(student.studentID) && name.equals(student.name) && address.equals(student.address) && dateOfBirth.equals(student.dateOfBirth) && email.equals(student.email);
+    }
+
 }
+
 

@@ -57,12 +57,14 @@ public class Course {
 
     public void setAssignedTeacher(Teacher teacher) {
         this.assignedTeacher = teacher;
+        teacher.assignCourse(this);
     }
 
     public void addStudent(Student student) {
         enrolledStudents.add(student);
         grades.add(null);
         System.out.println("Student " + student.getStudentID() + " added to " + title);
+        student.enrollInCourse(this);
     }
 
     public void removeStudent(Student student) {
@@ -98,7 +100,8 @@ public class Course {
         return 0.0;
     }
 
-    public void writeData() {
-        
+    public boolean issame(Course c){
+        return this.courseID.equals(c.getCourseID()) && this.courseID.equals(c.getCourseID()) && this.credits==c.getCredits();
     }
+    
 }
