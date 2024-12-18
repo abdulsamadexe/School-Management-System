@@ -10,6 +10,19 @@ public class AdministrativeStaff extends Person implements Reportable {
         this.role = role;
         this.department = department;
     }
+
+    public String getStaffID(){
+        return staffID;
+    }
+
+    public String getRole(){
+        return role;
+    }
+
+    public String getDepartment(){
+        return department;
+    }
+
     public String generateReport(){
         System.out.println("Generating report");
         return "Report generated";

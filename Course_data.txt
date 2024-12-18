@@ -1,0 +1,36 @@
+C004 Biology 4
+T003 Alice alice@example.com 06-06-1980 Biology 
+S003 Charlie charlie@example.com 03-03-2002 789 
+S004 David david@example.com 04-04-2003 101 
+null null 
+
+C005 History 3
+T004 Bob bob@example.com 07-07-1981 History 
+S004 David david@example.com 04-04-2003 101 
+S005 Eve eve@example.com 05-05-2004 202 
+null null 
+
+C006 Geography 3
+T005 Carol carol@example.com 08-08-1982 Geography 
+S003 Charlie charlie@example.com 03-03-2002 789 
+S005 Eve eve@example.com 05-05-2004 202 
+null null 
+
+C004 Biology 4
+T003 Alice alice@example.com 06-06-1980 Biology 
+S003 Charlie charlie@example.com 03-03-2002 789 Pine St 
+S004 David david@example.com 04-04-2003 101 Maple St 
+null null 
+
+C005 History 3
+T004 Bob bob@example.com 07-07-1981 History 
+S004 David david@example.com 04-04-2003 101 Maple St 
+S005 Eve eve@example.com 05-05-2004 202 Oak St 
+null null 
+
+C006 Geography 3
+T005 Carol carol@example.com 08-08-1982 Geography 
+S003 Charlie charlie@example.com 03-03-2002 789 Pine St 
+S005 Eve eve@example.com 05-05-2004 202 Oak St 
+null null 
+
