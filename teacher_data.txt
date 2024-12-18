@@ -1,0 +1,9 @@
+T003 Alice alice@example.com 06-06-1980 Biology 
+C004 Biology 4 
+
+T004 Bob bob@example.com 07-07-1981 History 
+C005 History 3 
+
+T005 Carol carol@example.com 08-08-1982 Geography 
+C006 Geography 3 
+

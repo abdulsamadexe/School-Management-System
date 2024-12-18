@@ -1,5 +1,5 @@
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
+import java.io.*;
 public class Course {
     private String courseID;
     private String title;
@@ -8,10 +8,22 @@ public class Course {
     private List<Student> enrolledStudents;
     private List<Integer> grades;
 
+    public Course(String courseID, String title,Teacher teacher, int credits) {
+        this.courseID = courseID;
+        this.title = title;
+        this.credits = credits;
+        this.assignedTeacher = teacher;
+        this.enrolledStudents = new ArrayList<>(100);
+        grades = new ArrayList<>(enrolledStudents.size());
+        for (int i = 0; i < enrolledStudents.size(); i++) {
+            grades.add(null);
+        }
+    }
     public Course(String courseID, String title, int credits) {
         this.courseID = courseID;
         this.title = title;
         this.credits = credits;
+        this.assignedTeacher = null;
         this.enrolledStudents = new ArrayList<>(100);
         grades = new ArrayList<>(enrolledStudents.size());
         for (int i = 0; i < enrolledStudents.size(); i++) {
@@ -31,14 +43,28 @@ public class Course {
         return credits;
     }
 
+    public Teacher getAssignedTeacher() {
+        return assignedTeacher;
+    }
+
+    public List<Student> getEnrolledStudents() {
+        return enrolledStudents;
+    }
+
+    public List<Integer> getGrades() {
+        return grades;
+    }
+
     public void setAssignedTeacher(Teacher teacher) {
         this.assignedTeacher = teacher;
+        teacher.assignCourse(this);
     }
 
     public void addStudent(Student student) {
         enrolledStudents.add(student);
         grades.add(null);
         System.out.println("Student " + student.getStudentID() + " added to " + title);
+        student.enrollInCourse(this);
     }
 
     public void removeStudent(Student student) {
@@ -74,20 +100,8 @@ public class Course {
         return 0.0;
     }
 
-    public static void main(String[] args) {
-        Course course = new Course("C001", "Mathematics", 4);
-        Student student1 = new Student("S001", "Alice", "abc", "01-01-2000", "123 Main St");
-        Student student2 = new Student("S002", "Bob", "def", "02-02-2001", "456 Elm St");
-        Student student3 = new Student("S003", "Charlie", "ghi", "03-03-2002", "789 Oak St");
-
-        course.addStudent(student1);
-        course.addStudent(student2);
-        course.addStudent(student3);
-
-        course.removeStudent(student1);
-        course.assignGrade(student2, 90);
-        course.assignGrade(student3, 85);
-        System.out.println("Average grade for " + course.getTitle() + ": " + course.calculateAverageGrade());
-
+    public boolean issame(Course c){
+        return this.courseID.equals(c.getCourseID()) && this.courseID.equals(c.getCourseID()) && this.credits==c.getCredits();
     }
+    
 }

@@ -10,6 +10,19 @@ public class AdministrativeStaff extends Person implements Reportable {
         this.role = role;
         this.department = department;
     }
+
+    public String getStaffID(){
+        return staffID;
+    }
+
+    public String getRole(){
+        return role;
+    }
+
+    public String getDepartment(){
+        return department;
+    }
+
     public String generateReport(){
         System.out.println("Generating report");
         return "Report generated";
@@ -31,5 +44,10 @@ public class AdministrativeStaff extends Person implements Reportable {
         System.out.println("Exporting to file");
 
     }
+    
+   public boolean isSame(AdministrativeStaff ad){
+       return this.staffID.equals(ad.getStaffID()) && this.role.equals(ad.getRole()) && this.department.equals(ad.getDepartment()) && this.dateOfBirth.equals(ad.getDateOfBirth()) && this.email.equals(ad.getEmail());
+   }
 
+    
 }
