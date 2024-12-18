@@ -10,15 +10,3 @@ S005 Eve eve@example.com 05-05-2004 202
 C005 History 3 
 C006 Geography 3 
 
-S003 Charlie charlie@example.com 03-03-2002 789 Pine St 
-C004 Biology 4 
-C006 Geography 3 
-
-S004 David david@example.com 04-04-2003 101 Maple St 
-C004 Biology 4 
-C005 History 3 
-
-S005 Eve eve@example.com 05-05-2004 202 Oak St 
-C005 History 3 
-C006 Geography 3 
-

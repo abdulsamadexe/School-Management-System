@@ -45,7 +45,9 @@ public class AdministrativeStaff extends Person implements Reportable {
 
     }
     
-   
+   public boolean isSame(AdministrativeStaff ad){
+       return this.staffID.equals(ad.getStaffID()) && this.role.equals(ad.getRole()) && this.department.equals(ad.getDepartment()) && this.dateOfBirth.equals(ad.getDateOfBirth()) && this.email.equals(ad.getEmail());
+   }
 
     
 }

@@ -17,6 +17,42 @@ public class University {
         courses = new Repository<>();
         adminstaff = new Repository<>();
     }
+    public static int getTotalStudents() {
+        return totalStudents;
+    }
+
+    public static int getTotalTeachers() {
+        return totalTeachers;
+    }
+
+    public static int getTotalCourses() {
+        return totalCourses;
+    }
+
+    public static int gettotalAdministrativeStaff() {
+        return totaladministrativestaff;
+    }
+
+    public List<Student> getStudents() {
+        return students.getAll();
+    }
+
+    public List<Teacher> getTeachers() {
+        return teachers.getAll();
+    }
+
+    public List<Course> getCourses() {
+        return courses.getAll();
+    }
+
+    public List<AdministrativeStaff> getAllAdministrativeStaff() {
+        return adminstaff.getAll();
+    }
+
+
+
+
+
 
     public void addStudent(Student student) {
         List<Student> st=students.getAll();
@@ -31,10 +67,17 @@ public class University {
     }
 
     public void addAdminstaff(AdministrativeStaff s) {
-        if (!adminstaff.getAll().contains(s)) {
-            adminstaff.add(s);
-            totaladministrativestaff++;
+        List<AdministrativeStaff> adm=adminstaff.getAll();
+
+        for(AdministrativeStaff ad:adm){
+            if(ad.isSame(s)){
+                return;
+            }
         }
+
+        adminstaff.add(s);
+        totaladministrativestaff++;
+        
     }
 
     public void addTeacher(Teacher teacher) {

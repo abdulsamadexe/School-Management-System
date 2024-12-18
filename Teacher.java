@@ -53,6 +53,8 @@ public class Teacher extends Person implements Reportable {
     public String generateReport() {
         return "Teacher Report: " + displayDetails();
     }
+
+    
     public boolean issameteacher(Teacher obj) {
         if (obj == null) {
             return false;
