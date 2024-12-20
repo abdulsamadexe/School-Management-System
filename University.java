@@ -183,6 +183,14 @@ public class University {
         }
     }
 
+    public void removeStudentFromCourse(String studentID, String courseID) {
+        Student student = searchStudentByID(studentID);
+        Course course = searchCourseByID(courseID);
+        if (student != null && course != null) {
+            course.removeStudent(student);
+        }
+    }
+
     public List<Course> filterCoursesByTeacher(String teacherID) {
         List<Course> result = new ArrayList<>();
         for (Course course : courses.getAll()) {
@@ -244,9 +252,13 @@ public class University {
                     if (currentCourse != null) {
                         currentCourse.addStudent(student);
                     }
-                }
+                }else if(parts[0].equals("Grades:")){
+                    for(int i=1;i<parts.length;i++){
+                        currentCourse.assignGrade(currentCourse.getEnrolledStudents().get(i-1), Integer.parseInt(parts[i]));
+                    }
             }
-        } catch (FileNotFoundException e) {
+        }
+     } catch (FileNotFoundException e) {
             System.out.println("Error reading from file: " + e.getMessage());
         }
 
@@ -391,6 +403,11 @@ public class University {
                     writer.println(student.getAddress() + " ");
                 }
                 List<Integer> grades = course.getGrades();
+                writer.print("Grades: ");
+                for (int grade : grades) {
+                    writer.print(grade + " ");
+                }
+                writer.println("\n");
                 
                 
                 writer.println("\n");

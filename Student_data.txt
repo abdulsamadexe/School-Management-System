@@ -1,11 +1,7 @@
-S003 Charlie charlie@example.com 03-03-2002 789 
-C005 History 3 
+S001 JohnDoe john.doe@example.com 1990-01-01 123MainSt 
+C001 Calculus 3 
+C002 Physics 4 
 
-S004 David david@example.com 04-04-2003 101 
-C004 Biology 4 
-C005 History 3 
-
-S005 Eve eve@example.com 05-05-2004 202 
-C005 History 3 
-C006 Geography 3 
+S002 JaneSmith jane.smith@example.com 1992-02-02 456ElmSt 
+C001 Calculus 3 
 

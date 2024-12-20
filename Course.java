@@ -72,13 +72,13 @@ public class Course {
     }
 
     public void removeStudent(Student student) {
-        int index = enrolledStudents.indexOf(student);
-        if (index != -1) {
-            enrolledStudents.remove(index);
-            grades.remove(index);
-            System.out.println("Student " + student.getStudentID() + " removed from " + title);
-        } else {
-            System.out.println("Student " + student.getStudentID() + " is not enrolled in " + title);
+        for(int i=0;i<enrolledStudents.size();i++){
+            if(enrolledStudents.get(i).getStudentID().equals(student.getStudentID())){
+                enrolledStudents.remove(i);
+                grades.remove(i);
+                System.out.println("Student " + student.getStudentID() + " removed from " + title);
+                return;
+            }
         }
     }
 

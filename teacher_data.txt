@@ -1,18 +1,4 @@
-T003 Alice alice@example.com 06-06-1980 Biology 
-C004 Biology 4 
+T001 Dr.Brown dr.brown@example.com 1975-03-03 Mathematics 
 
-T004 Bob bob@example.com 07-07-1981 History 
-C005 History 3 
-
-T005 Carol carol@example.com 08-08-1982 Geography 
-C006 Geography 3 
-
-T001 JohnDoe abc@gmail.com 01/01/1990 Mathematics 
-C100 maths 4 
-
-T002 JohnDoe abc@gmail.com 01/01/1990 Mathematics 
-C004 Biology 4 
-C993 Physics 3 
-C993 Physics 3 
-C100 maths 4 
+T002 Prof.Green prof.green@example.com 1980-04-04 Physics 
 

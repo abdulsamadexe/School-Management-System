@@ -1,27 +1,13 @@
-C004 Biology 4
-T002 JohnDoe abc@gmail.com 01/01/1990 Mathematics 
-S003 Charlie charlie@example.com 03-03-2002 789 
-S004 David david@example.com 04-04-2003 101 
+C001 Calculus 3
+T001 Dr.Brown dr.brown@example.com 1975-03-03 Mathematics 
+Grades: 
 
 
-C005 History 3
-T001 JohnDoe abc@gmail.com 01/01/1990 Mathematics 
-S004 David david@example.com 04-04-2003 101 
-S005 Eve eve@example.com 05-05-2004 202 
-S003 Charlie charlie@example.com 03-03-2002 789 
 
+C002 Physics 4
+T002 Prof.Green prof.green@example.com 1980-04-04 Physics 
+S001 JohnDoe john.doe@example.com 1990-01-01 123MainSt 
+Grades: 88 
 
-C006 Geography 3
-T001 JohnDoe abc@gmail.com 01/01/1990 Mathematics 
-S003 Charlie charlie@example.com 03-03-2002 789 
-S005 Eve eve@example.com 05-05-2004 202 
-
-
-C100 maths 4
-T002 JohnDoe abc@gmail.com 01/01/1990 Mathematics 
-
-
-C993 Physics 3
-T002 JohnDoe abc@gmail.com 01/01/1990 Mathematics 
 
 
