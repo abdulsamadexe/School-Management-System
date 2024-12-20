@@ -60,6 +60,10 @@ public class Course {
         teacher.assignCourse(this);
     }
 
+    public void setAssignedTeacher() {
+        this.assignedTeacher = null;
+    }
+
     public void addStudent(Student student) {
         enrolledStudents.add(student);
         grades.add(null);
@@ -77,6 +81,8 @@ public class Course {
             System.out.println("Student " + student.getStudentID() + " is not enrolled in " + title);
         }
     }
+
+    
     public void assignGrade(Student s, Integer grade) {
         int index = enrolledStudents.indexOf(s);
         if (index != -1) {

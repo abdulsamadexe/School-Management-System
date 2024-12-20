@@ -3,7 +3,30 @@ C004 Biology 4
 
 T004 Bob bob@example.com 07-07-1981 History 
 C005 History 3 
+C004 Biology 4 
+C004 Biology 4 
+C004 Biology 4 
+C004 Biology 4 
+C004 Biology 4 
+C004 Biology 4 
+C004 Biology 4 
+C005 History 3 
+C005 History 3 
 
 T005 Carol carol@example.com 08-08-1982 Geography 
 C006 Geography 3 
+
+T001 JohnDoe abc@gmail.com 01/01/1990 Mathematics 
+C100 maths 4 
+C100 maths 4 
+C006 Geography 3 
+C006 Geography 3 
+C005 History 3 
+C005 History 3 
+C006 Geography 3 
+C006 Geography 3 
+C006 Geography 3 
+C005 History 3 
+C005 History 3 
+C004 Biology 4 
 

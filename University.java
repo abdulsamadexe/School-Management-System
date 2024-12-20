@@ -152,7 +152,7 @@ public class University {
         return null;
     }
 
-    public void assignteacherToCourse(String teacherID, String courseID) {
+    public void assignTeacherToCourse(String teacherID, String courseID) {
         Teacher teacher = searchTeacherByID(teacherID);
         Course course = searchCourseByID(courseID);
         if (teacher != null && course != null) {
@@ -225,7 +225,10 @@ public class University {
                     if (currentCourse != null) {
                         currentCourse.setAssignedTeacher(teacher);
                     }
-                } else if (parts[0].startsWith("S")) {
+                 } else if (parts[0].equals("null")) {
+                        currentCourse.setAssignedTeacher();
+                    } 
+                   else if (parts[0].startsWith("S")) {
                     String studentID = parts[0];
                     String name = parts[1];
                     String email = parts[2];
@@ -381,14 +384,7 @@ public class University {
                     writer.print(student.getDateOfBirth() + " ");
                     writer.println(student.getAddress() + " ");
                 }
-                List<Integer> grades = course.getGrades();
-                for (Integer grade : grades) {
-                    if (grade != null) {
-                        writer.print(grade + " ");
-                    } else {
-                        writer.print("null" + " ");
-                    }
-                }
+                
                 writer.println("\n");
             }
             writer.close();
