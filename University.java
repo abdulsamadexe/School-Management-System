@@ -163,8 +163,14 @@ public class University {
     public void enrollStudentInCourse(String studentID, String courseID) {
         Student student = searchStudentByID(studentID);
         Course course = searchCourseByID(courseID);
+
         if (student != null && course != null) {
-            student.enrollInCourse(course);
+            for(Student s:course.getEnrolledStudents()){
+                if(s.getStudentID().equals(studentID)){
+                    return;
+                }
+            }
+            course.addStudent(student);
         }
     }
 

@@ -8,6 +8,7 @@ C005 History 3
 T001 JohnDoe abc@gmail.com 01/01/1990 Mathematics 
 S004 David david@example.com 04-04-2003 101 
 S005 Eve eve@example.com 05-05-2004 202 
+S003 Charlie charlie@example.com 03-03-2002 789 
 
 
 C006 Geography 3
@@ -17,10 +18,10 @@ S005 Eve eve@example.com 05-05-2004 202
 
 
 C100 maths 4
-T001 JohnDoe abc@gmail.com 01/01/1990 Mathematics 
+T002 JohnDoe abc@gmail.com 01/01/1990 Mathematics 
 
 
 C993 Physics 3
-T001 JohnDoe abc@gmail.com 01/01/1990 Mathematics 
+T002 JohnDoe abc@gmail.com 01/01/1990 Mathematics 
 
 

@@ -1,9 +1,4 @@
 S003 Charlie charlie@example.com 03-03-2002 789 
-C004 Biology 4 
-C006 Geography 3 
-C004 Biology 4 
-C005 History 3 
-C005 History 3 
 C005 History 3 
 
 S004 David david@example.com 04-04-2003 101 
