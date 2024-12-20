@@ -46,7 +46,20 @@ public class Teacher extends Person implements Reportable {
 
     @Override
     public String displayDetails() {
-        return "Teacher: " + teacherID + ", Name: " + name + ", Specialization: " + specialization;
+        StringBuilder details = new StringBuilder();
+        details.append("Teacher: ").append(teacherID)
+               .append(", Name: ").append(name)
+               .append(", Specialization: ").append(specialization)
+               .append(", Email: ").append(email)
+               .append(", Date of Birth: ").append(dateOfBirth)
+               .append(", Courses Taught: ");
+        for (Course course : coursesTaught) {
+            details.append(course.getTitle()).append(" (").append(course.getCourseID()).append("), ");
+        }
+        if (!coursesTaught.isEmpty()) {
+            details.setLength(details.length() - 2);
+        }
+        return details.toString();
     }
 
     @Override

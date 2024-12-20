@@ -77,7 +77,7 @@ public class Course {
             System.out.println("Student " + student.getStudentID() + " is not enrolled in " + title);
         }
     }
-    public void assignGrade(Student s, int grade) {
+    public void assignGrade(Student s, Integer grade) {
         int index = enrolledStudents.indexOf(s);
         if (index != -1) {
             grades.set(index, grade);
@@ -85,12 +85,12 @@ public class Course {
         } else {
             System.out.println(s.getStudentID() + " is not enrolled in " + title);
         }
-        }
+    }
 
     public double calculateAverageGrade() {
         int sum = 0;
         for (Integer grade : grades) {
-            if (grade != null) {
+            if (grade != -1) {
                 sum += grade;
             }
             }

@@ -116,6 +116,80 @@ public class University {
         return result;
     }
 
+    public Teacher searchTeacherByID(String teacherID) {
+        for (Teacher teacher : teachers.getAll()) {
+            if (teacher.getTeacherID().equals(teacherID)) {
+                return teacher;
+            }
+        }
+        return null;
+    }
+
+    public Course searchCourseByID(String courseID) {
+        for (Course course : courses.getAll()) {
+            if (course.getCourseID().equals(courseID)) {
+                return course;
+            }
+        }
+        return null;
+    }
+
+    public Student searchStudentByID(String studentID) {
+        for (Student student : students.getAll()) {
+            if (student.getStudentID().equals(studentID)) {
+                return student;
+            }
+        }
+        return null;
+    }   
+
+    public AdministrativeStaff searchAdminStaffByID(String staffID) {
+        for (AdministrativeStaff staff : adminstaff.getAll()) {
+            if (staff.getStaffID().equals(staffID)) {
+                return staff;
+            }
+        }
+        return null;
+    }
+
+    public void assignteacherToCourse(String teacherID, String courseID) {
+        Teacher teacher = searchTeacherByID(teacherID);
+        Course course = searchCourseByID(courseID);
+        if (teacher != null && course != null) {
+            course.setAssignedTeacher(teacher);
+        }
+    }
+
+    public void enrollStudentInCourse(String studentID, String courseID) {
+        Student student = searchStudentByID(studentID);
+        Course course = searchCourseByID(courseID);
+        if (student != null && course != null) {
+            student.enrollInCourse(course);
+        }
+    }
+
+    public void assignGradeToStudent(String studentID, String courseID, int grade) {
+        grade=(Integer)grade;
+        Student student = searchStudentByID(studentID);
+        Course course = searchCourseByID(courseID);
+        if (student != null && course != null) {
+            course.assignGrade(student, grade);
+        }
+    }
+
+    public List<Course> filterCoursesByTeacher(String teacherID) {
+        List<Course> result = new ArrayList<>();
+        for (Course course : courses.getAll()) {
+            Teacher teacher = course.getAssignedTeacher();
+            if (teacher != null && teacher.getTeacherID().equals(teacherID)) {
+                result.add(course);
+            }
+        }
+        return result;
+    }
+
+    
+
     public List<Course> filterCoursesByCredits(int minCredits) {
         List<Course> result = new ArrayList<>();
         for (Course course : courses.getAll()) {
