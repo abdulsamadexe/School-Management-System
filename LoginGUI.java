@@ -12,11 +12,13 @@ public class LoginGUI {
         frame.setLayout(new BorderLayout());
         frame.setResizable(false); 
 
-        frame.getContentPane().setBackground(Color.LIGHT_GRAY);
+        frame.getContentPane().setBackground(Color.decode("#F0EBD8"));
+        // line to add hex color to background
+        
 
         JLabel welcomeLabel = new JLabel("<html>Welcome to Student Management<br><center>System</center></html>", JLabel.CENTER);
         welcomeLabel.setFont(new Font("Arial", Font.BOLD, 24));
-        welcomeLabel.setForeground(Color.BLUE);
+        welcomeLabel.setForeground(Color.decode("#1D2D44"));
         frame.add(welcomeLabel, BorderLayout.NORTH);
 
         JPanel panel = new JPanel();
@@ -83,7 +85,7 @@ public class LoginGUI {
 
         JButton loginButton = new JButton("Login");
         loginButton.setBounds(200, 160, 100, 40);
-        loginButton.setBackground(Color.GREEN);
+        loginButton.setBackground(Color.decode("#3E5C76"));
         loginButton.setForeground(Color.WHITE);
         loginButton.setFont(new Font("Arial", Font.BOLD, 18));
         loginButton.setFocusPainted(false);
@@ -97,7 +99,7 @@ public class LoginGUI {
                 String password = new String(passwordText.getPassword());
                 if ("admin".equals(username) && "12345".equals(password)) {
                     frame.dispose();
-                    new newPage();
+                    new page();
                 } else {
                     UIManager.put("Button.focus", new Color(0, 0, 0, 0));
                     JOptionPane.showMessageDialog(null, "Invalid username or password", "Message", JOptionPane.INFORMATION_MESSAGE);
