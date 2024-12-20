@@ -50,53 +50,56 @@ public class University {
     }
 
 
-    public void addStudent(Student student) {
+    public int addStudent(Student student) {
         List<Student> st=students.getAll();
         for(Student stud:st){
-            if(stud.compare(student)){
-                return;
+            if(stud.getStudentID().equals(student.getStudentID())){
+                return -1;
             }
         }
         students.add(student);
         totalStudents++;
+        return 0;
         
     }
 
-    public void addAdminstaff(AdministrativeStaff s) {
+    public int addAdminstaff(AdministrativeStaff s) {
         List<AdministrativeStaff> adm=adminstaff.getAll();
 
         for(AdministrativeStaff ad:adm){
-            if(ad.isSame(s)){
-                return;
+            if(ad.getStaffID().equals(s.getStaffID())){
+                return -1;
             }
         }
 
         adminstaff.add(s);
         totaladministrativestaff++;
-        
+        return 0;
     }
 
-    public void addTeacher(Teacher teacher) {
+    public int addTeacher(Teacher teacher) {
             List<Teacher> t=teachers.getAll();
             for(Teacher teach:t){
-                if(teach.issameteacher(teacher)){
-                    return;
+                if(teach.getTeacherID().equals(teacher.getTeacherID())){
+                    return -1;
                 }
             }
             teachers.add(teacher);
             totalTeachers++;
+            return 0;
         }
     
 
-    public void addCourse(Course course) {
+    public int addCourse(Course course) {
         List<Course> crs=courses.getAll();
         for(Course cr:crs){
-            if(cr.issame(course)){
-                return;
+            if(cr.getCourseID().equals(course.getCourseID())){
+                return -1;
             }
         }
         courses.add(course);
         totalCourses++;
+        return 0;
         
     }
 
@@ -404,10 +407,9 @@ public class University {
                 }
                 List<Integer> grades = course.getGrades();
                 writer.print("Grades: ");
-                for (int grade : grades) {
+                for (Integer grade : grades) {
                     writer.print(grade + " ");
                 }
-                writer.println("\n");
                 
                 
                 writer.println("\n");

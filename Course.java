@@ -66,7 +66,7 @@ public class Course {
 
     public void addStudent(Student student) {
         enrolledStudents.add(student);
-        grades.add(null);
+        grades.add(-1);
         System.out.println("Student " + student.getStudentID() + " added to " + title);
         student.enrollInCourse(this);
     }
@@ -94,20 +94,15 @@ public class Course {
     }
 
     public double calculateAverageGrade() {
-        int sum = 0;
-        for (Integer grade : grades) {
-            if (grade != -1) {
-                sum += (int)grade;
+        double sum = 0;
+        int count = 0;
+        for (int i = 0; i < grades.size(); i++) {
+            if (grades.get(i) != -1) {
+                sum += grades.get(i);
+                count++;
             }
-            }
-        if (enrolledStudents.size() > 0) {
-            return (double) sum / enrolledStudents.size();
         }
-        return 0.0;
-    }
-
-    public boolean issame(Course c){
-        return this.courseID.equals(c.getCourseID()) && this.courseID.equals(c.getCourseID()) && this.credits==c.getCredits();
+        return sum / count;
     }
     
 }
