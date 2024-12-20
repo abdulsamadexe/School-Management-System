@@ -38,11 +38,17 @@ public class Student extends Person {
             System.out.println(course.getTitle() + " (" + course.getCredits() + " credits)");
         }
     }
-
-    @Override
-    public String displayDetails() {
-        return "Student: " + studentID + ", Name: " + name + ", Enrolled in: " + enrolledCourses;
-    }
+        public String displayDetails() {
+            StringBuilder courseNames = new StringBuilder();
+            for (Course course : enrolledCourses) {
+                courseNames.append(course.getTitle()).append(", ");
+            }
+            if (courseNames.length() > 0) {
+                courseNames.setLength(courseNames.length() - 2); // Remove the trailing comma and space
+            }
+            return "Student: " + studentID + ", Name: " + name + ", Enrolled in: " + courseNames.toString();
+        }
+    
 
     
     public boolean compare(Student obj) {
