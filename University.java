@@ -164,7 +164,8 @@ public class University {
         Student student = searchStudentByID(studentID);
         Course course = searchCourseByID(courseID);
         if (student != null && course != null) {
-            student.enrollInCourse(course);
+            // student.enrollInCourse(course);
+            course.addStudent(student);
         }
     }
 

@@ -20,3 +20,11 @@ C100 maths 4
 T001 JohnDoe abc@gmail.com 01/01/1990 Mathematics 
 
 
+C111 cpp 4
+T111 kamran kamran@gmail.com 12-04-1990 iamnotspeacialtized 
+
+
+C234 java 3
+T111 kamran kamran@gmail.com 12-04-1990 iamnotspeacialtized 
+
+

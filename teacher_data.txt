@@ -30,3 +30,12 @@ C005 History 3
 C005 History 3 
 C004 Biology 4 
 
+T111 kamran kamran@gmail.com 12-04-1990 iamnotspeacialtized 
+C111 cpp 4 
+C111 cpp 4 
+C234 java 3 
+C234 java 3 
+C234 java 3 
+
+T444 asdf n@gmail.com 12-12-4333 asdfg 
+

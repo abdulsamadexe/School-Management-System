@@ -29,16 +29,16 @@ public class page {
 
         frame.add(headerPanel, BorderLayout.NORTH);
 
-        mainPanel.add(createFormPanel(new String[]{"Course Title", "Course ID", "Course Credits"}, new String[]{"string", "courseId", "int"}), "AddCourse");
-        mainPanel.add(createFormPanel(new String[]{"Teacher ID", "Course ID"}, new String[]{"teacherId", "courseId"}), "AssignTeacherToCourse");
-        mainPanel.add(createFormPanel(new String[]{"Student ID", "Course ID"}, new String[]{"studentId", "courseId"}), "EnrollStudentInCourse");
-        mainPanel.add(createFormPanel(new String[]{"Student ID", "Course ID"}, new String[]{"studentId", "courseId"}), "RemoveStudentFromCourse");
-        mainPanel.add(createFormPanel(new String[]{"Course ID"}, new String[]{"courseId"}), "CalculateAverageGrade");
-        mainPanel.add(createFormPanel(new String[]{"Teacher Name", "Email", "DOB", "Teacher ID", "Specialization"}, new String[]{"string", "email", "dob", "teacherId", "string"}), "AddTeacher");
-        mainPanel.add(createFormPanel(new String[]{"Teacher ID", "Course ID"}, new String[]{"teacherId", "courseId"}), "AssignCourseToTeacher");
-        mainPanel.add(createFormPanel(new String[]{"Student Name", "Email", "DOB", "Student ID", "Address"}, new String[]{"string", "email", "dob", "studentId", "string"}), "AddStudent");
-        mainPanel.add(createFormPanel(new String[]{"Student ID","Course ID", "Grade"}, new String[]{"studentId","courseId", "int"}), "AssignGradeToStudent");
-
+        mainPanel.add(createFormPanel(new String[]{"Course ID","Course Title",  "Course Credits"}, new String[]{"courseId","string", "int"},"AddCourse"), "AddCourse");
+        mainPanel.add(createFormPanel(new String[]{"Teacher ID", "Course ID"}, new String[]{"teacherId", "courseId"}, "AssignTeacherToCourse"), "AssignTeacherToCourse");
+        mainPanel.add(createFormPanel(new String[]{"Student ID", "Course ID"}, new String[]{"studentId", "courseId"}, "EnrollStudentInCourse"), "EnrollStudentInCourse");
+        mainPanel.add(createFormPanel(new String[]{"Student ID", "Course ID"}, new String[]{"studentId", "courseId"}, "RemoveStudentFromCourse"), "RemoveStudentFromCourse");
+        mainPanel.add(createFormPanel(new String[]{"Course ID"}, new String[]{"courseId"}, "CalculateAverageGrade"), "CalculateAverageGrade");
+        mainPanel.add(createFormPanel(new String[]{"Teacher ID", "Teacher Name", "Email", "DOB", "Specialization"}, new String[]{"teacherId", "string", "email", "dob", "string"}, "AddTeacher"), "AddTeacher");
+        mainPanel.add(createFormPanel(new String[]{"Teacher ID", "Course ID"}, new String[]{"teacherId", "courseId"}, "AssignCourseToTeacher"), "AssignCourseToTeacher");
+        mainPanel.add(createFormPanel(new String[]{"Student ID", "Student Name", "Email", "DOB", "Address"}, new String[]{"studentId", "string", "email", "dob", "string"}, "AddStudent"), "AddStudent");
+        mainPanel.add(createFormPanel(new String[]{"Student ID","Course ID", "Grade"}, new String[]{"studentId","courseId", "int"}, "AssignGradeToStudent"), "AssignGradeToStudent");
+        mainPanel.add(createReportPanel(), "GenerateReport");
         frame.add(mainPanel, BorderLayout.CENTER);
 
         createMenuBar(frame);
@@ -46,7 +46,7 @@ public class page {
         frame.setVisible(true);
     }
 
-    private JPanel createFormPanel(String[] labels, String[] types) {
+    private JPanel createFormPanel(String[] labels, String[] types,String func) {
         JPanel panel = new JPanel(new GridBagLayout());
         panel.setBackground(Color.decode("#F0EBD8")); 
         GridBagConstraints gbc = new GridBagConstraints();
@@ -115,27 +115,27 @@ public class page {
                 }
                 if (valid) {
                     System.out.println(inputData.toString());
-                    if (labels[0].equals("Course Title")) {
+                    if (func.equals("AddCourse")) {
                         university.addCourse(new Course(textFields[0].getText(), textFields[1].getText(), Integer.parseInt(textFields[2].getText())));
-                    } else if (labels[0].equals("Teacher Name") && labels.length == 5) {
+                    } else if (func.equals("AddTeacher")) {
                         university.addTeacher(new Teacher(textFields[0].getText(), textFields[1].getText(), textFields[2].getText(), textFields[3].getText(), textFields[4].getText()));
-                    } else if (labels[0].equals("Student Name") && labels.length == 5) {
+                    } else if (func.equals("AddStudent")) {
                         university.addStudent(new Student(textFields[0].getText(), textFields[1].getText(), textFields[2].getText(), textFields[3].getText(), textFields[4].getText()));
                     } 
 
-                    else if (labels[0].equals("Teacher ID") && labels.length == 2) 
+                    else if (  func.equals("AssignTeacherToCourse")) 
                       {  university.assignTeacherToCourse(textFields[0].getText(), textFields[1].getText());
                     }
-                    //  else if (labels[0].equals("Student ID") && labels.length == 2) {
+                    //  else if (func.equals("AssignCourseToTeacher")) {
                     //     university.enrollStudentInCourse(textFields[0].getText(), textFields[1].getText());
                     // } 
-                    // else if (labels[0].equals("Student ID") && labels.length == 2) {
+                    // else if (func.equals("EnrollStudentInCourse") {
                     //     university.removeStudentFromCourse(textFields[0].getText(), textFields[1].getText());
                     // }
-                    // else if (labels[0].equals("Course ID")) {
+                    // else if (func.equals("RemoveStudentFromCourse")) {
                     //     university.calculateAverageGrade(textFields[0].getText());
                     // }
-                    //  else if (labels[0].equals("Student ID") && labels.length == 2) {
+                    //  else if (func.equals("AssignGradeToStudent")) {
                     //     university.assignGradeToStudent(textFields[0].getText(),textFields[1].getText(), Integer.parseInt(textFields[2].getText()));
                     // }
                 university.saveData(null);
@@ -145,6 +145,119 @@ public class page {
 
         return panel;
     }
+
+    private JPanel createReportPanel() {
+        JPanel panel = new JPanel(new GridBagLayout());
+        
+        panel.setBackground(Color.decode("#F0EBD8"));
+        GridBagConstraints gbc = new GridBagConstraints();
+        gbc.insets = new Insets(15, 10, 15, 10);
+
+        JButton studentsReportButton = new JButton("Students Report");
+        JButton coursesReportButton = new JButton("Courses Report");
+        JButton teachersReportButton = new JButton("Teachers Report");
+
+        studentsReportButton.setFont(new Font("Arial", Font.BOLD, 20));
+        coursesReportButton.setFont(new Font("Arial", Font.BOLD, 20));
+        teachersReportButton.setFont(new Font("Arial", Font.BOLD, 20));
+
+        gbc.gridx = 0;
+        gbc.gridy = 0;
+        panel.add(studentsReportButton, gbc);
+
+        gbc.gridx = 0;
+        gbc.gridy = 1;
+        panel.add(coursesReportButton, gbc);
+
+        gbc.gridx = 0;
+        gbc.gridy = 2;
+        panel.add(teachersReportButton, gbc);
+
+        studentsReportButton.addActionListener(e -> showStudentsReport());
+        coursesReportButton.addActionListener(e -> showCoursesReport());
+        teachersReportButton.addActionListener(e -> showTeachersReport());
+
+        return panel;
+    }
+
+    private void showStudentsReport() {
+        JFrame reportFrame = new JFrame("Students Report");
+        reportFrame.setSize(400, 400);
+        reportFrame.setLocationRelativeTo(null);
+        reportFrame.setLayout(new BorderLayout());
+    
+        JLabel heading = new JLabel("Students Report", JLabel.CENTER);
+        heading.setFont(new Font("Arial", Font.BOLD, 24));
+        reportFrame.add(heading, BorderLayout.NORTH);
+    
+        JPanel reportPanel = new JPanel();
+        reportPanel.setBackground(Color.decode("#F0EBD8"));
+        reportPanel.setLayout(new BoxLayout(reportPanel, BoxLayout.Y_AXIS));
+        // Assuming university.getStudentsReport() returns a List<String> of student details
+        // for (String student : university.getStudentsReport()) {
+        //     JLabel studentLabel = new JLabel(student);
+        //     studentLabel.setFont(new Font("Arial", Font.PLAIN, 16));
+        //     reportPanel.add(studentLabel);
+        // }
+    
+        JScrollPane scrollPane = new JScrollPane(reportPanel);
+        reportFrame.add(scrollPane, BorderLayout.CENTER);
+    
+        reportFrame.setVisible(true);
+    }
+    
+    private void showCoursesReport() {
+        JFrame reportFrame = new JFrame("Courses Report");
+        reportFrame.setSize(400, 400);
+        reportFrame.setLocationRelativeTo(null);
+        reportFrame.setLayout(new BorderLayout());
+    
+        JLabel heading = new JLabel("Courses Report", JLabel.CENTER);
+        heading.setFont(new Font("Arial", Font.BOLD, 24));
+        reportFrame.add(heading, BorderLayout.NORTH);
+    
+        JPanel reportPanel = new JPanel();
+        reportPanel.setBackground(Color.decode("#F0EBD8"));
+        reportPanel.setLayout(new BoxLayout(reportPanel, BoxLayout.Y_AXIS));
+        // Assuming university.getCoursesReport() returns a List<String> of course details
+        // for (String course : university.getCoursesReport()) {
+        //     JLabel courseLabel = new JLabel(course);
+        //     courseLabel.setFont(new Font("Arial", Font.PLAIN, 16));
+        //     reportPanel.add(courseLabel);
+        // }
+    
+        JScrollPane scrollPane = new JScrollPane(reportPanel);
+        reportFrame.add(scrollPane, BorderLayout.CENTER);
+    
+        reportFrame.setVisible(true);
+    }
+    
+    private void showTeachersReport() {
+        JFrame reportFrame = new JFrame("Teachers Report");
+        reportFrame.setSize(400, 400);
+        reportFrame.setLocationRelativeTo(null);
+        reportFrame.setLayout(new BorderLayout());
+    
+        JLabel heading = new JLabel("Teachers Report", JLabel.CENTER);
+        heading.setFont(new Font("Arial", Font.BOLD, 24));
+        reportFrame.add(heading, BorderLayout.NORTH);
+    
+        JPanel reportPanel = new JPanel();
+        reportPanel.setBackground(Color.decode("#F0EBD8"));
+        reportPanel.setLayout(new BoxLayout(reportPanel, BoxLayout.Y_AXIS));
+        // Assuming university.getTeachersReport() returns a List<String> of teacher details
+        // for (String teacher : university.getTeachersReport()) {
+        //     JLabel teacherLabel = new JLabel(teacher);
+        //     teacherLabel.setFont(new Font("Arial", Font.PLAIN, 16));
+        //     reportPanel.add(teacherLabel);
+        // }
+    
+        JScrollPane scrollPane = new JScrollPane(reportPanel);
+        reportFrame.add(scrollPane, BorderLayout.CENTER);
+    
+        reportFrame.setVisible(true);
+    }
+    
 
     private boolean validateInput(String input, String type) {
         switch (type) {
@@ -216,6 +329,13 @@ public class page {
         menuBar.add(teacherMenu);
         menuBar.add(studentMenu);
 
+        JMenu staff = new JMenu("Administrative Staff");
+        staff.setFont(new Font("Arial", Font.PLAIN, 20));
+        JMenuItem addStaff = new JMenuItem("Generate Report");
+        addStaff.setFont(new Font("Arial", Font.PLAIN, 20));
+        staff.add(addStaff);
+        menuBar.add(staff);
+
         frame.setJMenuBar(menuBar);
 
         addCourse.addActionListener(_ -> showPanel("AddCourse", "Add Course"));
@@ -227,6 +347,7 @@ public class page {
         assignCourseToTeacher.addActionListener(_ -> showPanel("AssignCourseToTeacher", "Assign Course to Teacher"));
         addStudent.addActionListener(_ -> showPanel("AddStudent", "Add Student"));
         assignGradeToStudent.addActionListener(_ -> showPanel("AssignGradeToStudent", "Assign Grade to Student"));
+        addStaff.addActionListener(_ -> showPanel("GenerateReport", "Generate Report"));
     }
 
     private void showPanel(String panelName, String labelText) {

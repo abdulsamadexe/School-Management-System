@@ -8,7 +8,7 @@ public class SchoolManagementSystem {
         // Course course = new Course("C025", "Civics", 2);
         // university.addCourse(course);
         
-        university.assignTeacherToCourse("T111", "C100");
+        university.assignTeacherToCourse("T111", "C111");
         
         university.saveData("data.txt");
 
