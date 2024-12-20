@@ -29,4 +29,11 @@ C006 Geography 3
 C005 History 3 
 C005 History 3 
 C004 Biology 4 
+C004 Biology 4 
+C004 Biology 4 
+C004 Biology 4 
+C993 Physics 3 
+
+T002 JohnDoe abc@gmail.com 01/01/1990 Mathematics 
+C004 Biology 4 
 

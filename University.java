@@ -384,6 +384,8 @@ public class University {
                     writer.print(student.getDateOfBirth() + " ");
                     writer.println(student.getAddress() + " ");
                 }
+                List<Integer> grades = course.getGrades();
+                
                 
                 writer.println("\n");
             }

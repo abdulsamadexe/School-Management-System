@@ -97,7 +97,7 @@ public class Course {
         int sum = 0;
         for (Integer grade : grades) {
             if (grade != -1) {
-                sum += grade;
+                sum += (int)grade;
             }
             }
         if (enrolledStudents.size() > 0) {
